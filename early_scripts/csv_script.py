@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-temp_path = '..\CollegeScorecard_Raw_Data\CollegeScorecard_Raw_Data\MERGED2018_19_PP.csv'
+college_data_path = '..\CollegeScorecard_Raw_Data\CollegeScorecard_Raw_Data'
 
 
 ls_of_relevant_clmns = ['INSTNM', 'CITY', 'STABBR', 'ZIP', 'INSTURL',
@@ -12,6 +12,7 @@ ls_of_relevant_clmns = ['INSTNM', 'CITY', 'STABBR', 'ZIP', 'INSTURL',
 						'ACTWR25', 'ACTWR75', 'ACTCMMID', 'ACTENMID',
 						'ACTMTMID', 'ACTWRMID', 'SAT_AVG', 'SAT_AVG_ALL',
 						'TUITIONFEE_IN', 'TUITIONFEE_OUT',]
+
 
 def create_df(csv_path):
 	
