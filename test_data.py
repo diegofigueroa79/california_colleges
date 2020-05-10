@@ -18,7 +18,7 @@ class TestCSVScript(unittest.TestCase):
 		Test that the newly renamed column now exists
 		"""
 		df = csv_script.create_df('TESTMERGED2018_19_PP.csv')
-		df = csv_script.rename_columns(columns={'INSTNM': 'NAME'}, inplace=True)
+		df = csv_script.rename_columns(df, rename_dict={'INSTNM': 'NAME'})
 		self.assertFalse(df['NAME'].empty)
 	
 if __name__ == '__main__':
