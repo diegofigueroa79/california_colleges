@@ -10,11 +10,16 @@ class TestCSVScript(unittest.TestCase):
 		"""
 		Test that the function returns a df of size (6806, 1982)
 		"""
-		
-		data_path = 'TESTMERGED2018_19_PP.csv'
-		
-		df = csv_script.create_df(data_path)
+		df = csv_script.create_df('TESTMERGED2018_19_PP.csv')
 		self.assertEqual(df.shape, (6806, 1982))
+	
+	def test_renamed_column_exists(self):
+		"""
+		Test that the newly renamed column now exists
+		"""
+		df = csv_script.create_df('TESTMERGED2018_19_PP.csv')
+		df = csv_script.rename_columns(columns={'INSTNM': 'NAME'}, inplace=True)
+		self.assertFalse(df['NAME'].empty)
 	
 if __name__ == '__main__':
 
