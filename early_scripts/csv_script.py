@@ -5,7 +5,7 @@ college_data_path = '..\CollegeScorecard_Raw_Data\CollegeScorecard_Raw_Data'
 
 
 ls_of_relevant_clmns = ['INSTNM', 'CITY', 'STABBR', 'ZIP', 'INSTURL',
-						'ADM_RATE', 'ADM_RATE_ALL', 'SATVR25', 'SATVR75',
+						'ADM_RATE', 'SATVR25', 'SATVR75',
 						'SATMT25', 'SATMT75', 'SATWR25', 'SATWR75',
 						'SATVRMID', 'SATMTMID', 'ACTCM25', 'ACTCM75',
 						'ACTEN25', 'ACTEN75', 'ACTMT25', 'ACTMT75',
