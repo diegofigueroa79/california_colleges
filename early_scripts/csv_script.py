@@ -24,7 +24,7 @@ def create_df(csv_path):
 	
 	return df
 	
-def rename_columns(df):
+def rename_columns(df, rename_dict):
 	
 	df.rename(columns=rename_dict, inplace=True)
 	
