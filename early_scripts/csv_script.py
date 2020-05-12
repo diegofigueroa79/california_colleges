@@ -23,6 +23,12 @@ def create_df(csv_path):
 	df = pd.read_csv(csv_path)
 	
 	return df
+
+def trim_df(df, columns):
+	
+	new_df = df[ls_of_relevant_clmns]
+	
+	return new_df
 	
 def rename_columns(df, rename_dict):
 	
