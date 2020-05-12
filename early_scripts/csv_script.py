@@ -26,7 +26,7 @@ def create_df(csv_path):
 
 def trim_df(df, columns):
 	
-	new_df = df[ls_of_relevant_clmns]
+	new_df = df[columns]
 	
 	return new_df
 	
