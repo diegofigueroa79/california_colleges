@@ -36,4 +36,11 @@ def rename_columns(df, rename_dict):
 	
 	return df
 
+def retrieve_by_state(df, state):
+	
+	is_state = df['STATE'] == state
+	new_df = df[is_state]
+	
+	return new_df
+
 
