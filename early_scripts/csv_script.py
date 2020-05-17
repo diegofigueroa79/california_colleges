@@ -43,4 +43,10 @@ def retrieve_by_state(df, state):
 	
 	return new_df
 
+def create_ls_of_tuples(df):
+	
+	ls = list(df.itertuples(index=False, name=None))
+	
+	return ls
+
 
