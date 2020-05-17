@@ -41,6 +41,17 @@ class TestCSVScript(unittest.TestCase):
 		df = csv_script.retrieve_by_state(df, 'CA')
 		self.assertEqual(df['STATE'].iloc[0], 'CA')
 	
+	def test_checks_tuple_list_equals_df(self):
+		"""
+		Test checks if the list of tuples created is the same length
+		as the number of rows from the dataframe
+		"""
+		df = csv_script.create_df('TESTMERGED2018_19_PP.csv')
+		df = csv_script.rename_columns(df, rename_dict={'STABBR': 'STATE'})
+		df = csv_script.retrieve_by_state(df, 'CA')
+		ls = csv_script.create_ls_of_tuples(df)
+		self.assertEqual(df.shape[0], len(ls))
+	
 if __name__ == '__main__':
 
 	unittest.main()
