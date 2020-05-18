@@ -1,4 +1,5 @@
 import psycopg2
+from psycopg2 import Error
 
 
 create_table_sql = '''
@@ -35,3 +36,30 @@ create_table_sql = '''
 	TUITION_OUT	INT		NOT NULL
 	);
 ''' 
+
+
+
+def create_table_pg(sql, credentials):
+	
+	try:
+		connection = psycopg2.connect(
+			user = credentials['user'],
+			password = credentials['password'],
+			host = credentials['host'],
+			port = credentials['port'],
+			database = credentials['database']
+		)
+		
+		cursor = connection.cursor()
+		cursor.execute(sql)
+		connection.commit()
+		print("Table created successfully in PostgreSQL")
+	
+	except (Exception, psycopg2.DatabaseError) as error:
+		print("Error while creating PostgreSQL table", error)
+	
+	finally:
+		if(connection):
+			cursor.close()
+			connection.close()
+			print("PostgreSQL connection is closed")
