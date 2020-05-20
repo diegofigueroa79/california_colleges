@@ -40,6 +40,7 @@ create_table_sql = '''
 
 
 def create_table_pg(sql, credentials):
+
 	
 	try:
 		connection = psycopg2.connect(
@@ -63,3 +64,44 @@ def create_table_pg(sql, credentials):
 			cursor.close()
 			connection.close()
 			print("PostgreSQL connection is closed")
+			
+
+def insert_bulk_data(ls, credentials):
+	
+	try:
+		connection = psycopg2.connect(
+			user = credentials['user'],
+			password = credentials['password'],
+			host = credentials['host'],
+			port = credentials['port'],
+			database = credentials['database']
+		)
+		
+		cursor = connection.cursor()
+		
+		records_list_template = ','.join(['%s'] * len(ls))
+		
+		insert_query = 'INSERT INTO colleges_ca\
+			(NAME, CITY, STATE, ZIP, INSTURL, ADM_RATE,\
+			SATVR25, SATVR75, SATMT25, SATMT75,\
+			SATWR25, SATWR75, SATVRMID, SATMTMID, ACTCM25,\
+			ACTCM75, ACTEN25, ACTEN75, ACTMT25, ACTMT75,\
+			ACTWR25, ACTWR75, ACTCMMID, ACTENMID, ACTMTMID,\
+			ACTWRMID, SAT_AVG, TUITION_IN, TUITION_OUT)\
+			VALUES {}'.format(records_list_template)
+		
+		cursor.execute(insert_query, ls)
+		connection.commit()
+	
+	except (Exception, psycopg2.Error) as error:
+		if(connection):
+			print("Failed to insert record into mobile table", error)
+	
+	finally:
+		if(connection):
+			cursor.close()
+			connection.close()
+			print("PostgreSQL connection is closed")
+		
+		
+		
