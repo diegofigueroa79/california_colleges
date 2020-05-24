@@ -87,9 +87,9 @@ def insert_bulk_data(ls, credentials):
 			ACTCM75, ACTEN25, ACTEN75, ACTMT25, ACTMT75,\
 			ACTWR25, ACTWR75, ACTCMMID, ACTENMID, ACTMTMID,\
 			ACTWRMID, SAT_AVG, TUITION_IN, TUITION_OUT)\
-			VALUES {}'.format(records_list_template)
-		
-		cursor.execute(insert_query, ls)
+			VALUES {};'.format(records_list_template)
+		print(cursor.mogrify(insert_query, ls))
+		#cursor.execute(insert_query, ls)
 		connection.commit()
 	
 	except (Exception, psycopg2.Error) as error:
