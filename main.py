@@ -13,6 +13,8 @@ if __name__ == '__main__':
 	
 	df = csv_script.retrieve_by_state(df, 'CA')
 	
+	df = csv_script.reformat_index(df)
+	
 	ls = csv_script.create_ls_of_tuples(df)
 	
 	print("List of tuples ready.")
