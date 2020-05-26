@@ -4,7 +4,8 @@ from psycopg2 import Error
 
 create_table_sql = '''
 	CREATE TABLE colleges_ca
-	(NAME	TEXT	PRIMARY KEY		NOT NULL,
+	(ID		INT		PRIMARY KEY		NOT NULL,
+	NAME	TEXT	NOT NULL,
 	CITY	TEXT	NOT NULL,
 	STATE	TEXT	NOT NULL,
 	ZIP		TEXT	NOT NULL,
