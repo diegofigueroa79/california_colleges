@@ -43,6 +43,13 @@ def retrieve_by_state(df, state):
 	
 	return new_df
 
+def reformat_index(df):
+	
+	df.reset_index(drop=True, inplace=True)
+	df.reset_index(inplace=True)
+	
+	return df
+
 def create_ls_of_tuples(df):
 	
 	ls = list(df.itertuples(index=False, name=None))
