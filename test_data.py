@@ -41,6 +41,18 @@ class TestCSVScript(unittest.TestCase):
 		df = csv_script.retrieve_by_state(df, 'CA')
 		self.assertEqual(df['STATE'].iloc[0], 'CA')
 	
+	def test_df_has_reset_index_from_zero(self):
+		"""
+		Test checks whether the index has been reset to start from
+		zero and whether a new column has been mirroring the index
+		"""
+		df = csv_script.create_df('TESTMERGED2018_19_PP.csv')
+		df = csv_script.rename_columns(df, rename_dict={'STABBR': 'STATE'})
+		df = csv_script.retrieve_by_state(df, 'CA')
+		df = csv_script.reformat_index(df)
+		self.assertEqual(df['index'].iloc[0], 0)
+		
+	
 	def test_checks_tuple_list_equals_df(self):
 		"""
 		Test checks if the list of tuples created is the same length
