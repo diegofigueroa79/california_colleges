@@ -82,7 +82,7 @@ def insert_bulk_data(ls, credentials):
 		records_list_template = ','.join(['%s'] * len(ls))
 		
 		insert_query = 'INSERT INTO colleges_ca\
-			(NAME, CITY, STATE, ZIP, URL, ADM_RATE,\
+			(ID, NAME, CITY, STATE, ZIP, URL, ADM_RATE,\
 			SATVR25, SATVR75, SATMT25, SATMT75,\
 			SATWR25, SATWR75, SATVRMID, SATMTMID, ACTCM25,\
 			ACTCM75, ACTEN25, ACTEN75, ACTMT25, ACTMT75,\
