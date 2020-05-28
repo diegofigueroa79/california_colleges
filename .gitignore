@@ -130,3 +130,6 @@ dmypy.json
 
 # college data
 CollegeScorecard_Raw_Data/
+
+# credentials json file
+credentials.json
