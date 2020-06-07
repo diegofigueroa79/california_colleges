@@ -9,7 +9,7 @@ from django.db import models
 
 
 class CollegesCa(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.TextField()
     city = models.TextField()
     state = models.TextField()
@@ -41,5 +41,5 @@ class CollegesCa(models.Model):
     tuition_out = models.FloatField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'colleges_ca'
